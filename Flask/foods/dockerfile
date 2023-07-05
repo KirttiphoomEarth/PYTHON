@@ -1,0 +1,9 @@
+FROM python:3.11.3
+WORKDIR /app
+COPY ./requirements.txt /app
+RUN pip install -r requirements.txt
+COPY . .
+EXPOSE 8070
+CMD ["python", "food.py"]
+#CMD ["gunicorn", "--bind", "0.0.0.0:8090", "app:app", "--timeout=1000"]
+#CMD ["flask", "run", "--host", "0.0.0.0"]
